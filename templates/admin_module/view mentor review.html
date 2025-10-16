@@ -1,0 +1,35 @@
+{% extends 'admin_module/admin_index.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form>
+<table class="table text-white">
+  <tr>
+    <th width="10" scope="col">#</th>
+    <th width="26" scope="col">User</th>
+    <th width="63" scope="col">Mentor</th>
+    <th width="63" scope="col">Review</th>
+    <th width="68" scope="col">Date</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.USER.name }}</td>
+    <td>&nbsp;{{ i.MENTOR.name }}</td>
+    <td>&nbsp;{{ i.review }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

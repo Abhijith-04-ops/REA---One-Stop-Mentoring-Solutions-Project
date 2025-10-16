@@ -1,0 +1,68 @@
+{% extends 'mentor_module/mentor_index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/view_profile_edit_profile_post" method="post" enctype="multipart/form-data"><table width="500">
+{% csrf_token %}
+  <tr>
+    <th width="165" scope="row">Photo</th>
+    <td colspan="2">
+        <img src="{{ data.photo }}" alt="image" height="150" width="100"/>
+        <label for="fileField"></label>
+      <input type="file" name="fileField" class="form-control" placeholder="Photo" id="fileField" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Name</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield" class="form-control" placeholder="Name" id="textfield" value="{{ data.name }}"/></td>
+  </tr>
+  <tr>
+    <th scope="row">Gender</th>
+    <td><p>
+        {% if data.gender == "Male" %}
+      <label>
+        <input type="radio" checked name="RadioGroup1" value="Male" id="RadioGroup1_0" />
+        Male</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1" />
+        Female</label>
+            {% else %}<label>
+        <input type="radio"  name="RadioGroup1" value="Male" id="RadioGroup1_0" />
+        Male</label>
+      <br />
+      <label>
+        <input type="radio" checked name="RadioGroup1" value="Female" id="RadioGroup1_1" />
+        Female</label>
+        {% endif %}
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone</th>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" class="form-control" placeholder="Phone" id="textfield2" value="{{ data.phone }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Email</th>
+    <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" class="form-control" placeholder="Email" id="textfield3" value="{{ data.email }}" readonly /></td>
+  </tr>
+{#  <tr>#}
+{#    <th scope="row">Password</th>#}
+{#    <td><label for="textfield4"></label>#}
+{#      <input type="password" name="textfield4" id="textfield4" /></td>#}
+{#  </tr>#}
+  <tr>
+    <th colspan="2"><div align="center"> <input type="submit" name="button" class="btn btn-dark py-2 px-3" id="button" value="Update"/></div></th>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

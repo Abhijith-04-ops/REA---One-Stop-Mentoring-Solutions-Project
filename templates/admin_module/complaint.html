@@ -1,0 +1,40 @@
+{% extends 'admin_module/admin_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form method="post" action="">
+<table class="table text-white">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">User</th>
+    <th scope="col">Complaint</th>
+    <th scope="col">Date</th>
+    <th scope="col">Reply</th>
+    <th scope="col">ReplyDate</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{forloop.counter}}</td>
+    <td>{{i.USER.name}}</td>
+    <td>{{i.complaint}}</td>
+    <td>&nbsp;{{ i.Cdate }}</td>
+      {% if i.reply == "pending" %}
+      <td colspan="2"><a href="/send_reply/{{ i.id }}#aaa" class="btn btn-success">REPLY</a></td>
+      {% else %}
+    <td>&nbsp;{{ i.reply }}</td>
+    <td>{{ i.Rdate }}</td>
+  {% endif %}
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

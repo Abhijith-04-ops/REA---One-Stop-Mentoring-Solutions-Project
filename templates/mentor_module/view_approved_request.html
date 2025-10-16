@@ -1,0 +1,37 @@
+{% extends 'mentor_module/mentor_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get"><table class="table text-white">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Date</th>
+    <th scope="col">Username</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Email</th>
+    <th scope="col">&nbsp; </th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{i.date}}</td>
+    <td>{{i.USER.name}}</td>
+    <td>{{i.USER.gender }}</td>
+    <td>{{i.USER.email }}</td>
+    <td><p><a href="/chatt/{{ i.USER.id }}#aaa" class="btn btn-dark">CHAT</a></p>
+      <p><a href="/video_call/{{ i.USER.id }}#aaa"class="btn btn-dark">VIDEO CALL</a></p></td>
+    <td><p><a href="/view_emotion_graph/{{ i.USER.id }}#aaa" class="btn btn-dark">TEXT EMOTION</a></p>
+        <p><a href="/view_image_emotion_graph/{{ i.USER.id }}#aaa" class="btn btn-dark">IMAGE EMOTION</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

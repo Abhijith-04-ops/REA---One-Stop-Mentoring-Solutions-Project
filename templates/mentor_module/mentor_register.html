@@ -1,0 +1,61 @@
+{% extends 'login_index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/mentor_register_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+<table width="405" >
+  <tr>
+    <th width="159" scope="row">Photo</th>
+    <td width="230">
+      <label for="fileField"></label>
+      <input type="file" class="form-control" name="fileField" required id="fileField" /></td>
+  </tr>
+  <tr>
+{#    <th scope="row">Name</th>#}
+    <td colspan="2"><label for="textfield"></label>
+      <input type="text" pattern="[A-Za-z]+" oninvalid="setCustomValidity('Name can only contain alphabets!!')" class="form-control" placeholder="Name" required name="textfield" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Gender</th>
+    <td><p>
+      <label>
+        <input type="radio" required class="form-control" name="RadioGroup1" value="Male" id="RadioGroup1_0" />
+        Male</label>
+      <br />
+      <label>
+        <input type="radio" required class="form-control" name="RadioGroup1" value="Female" id="RadioGroup1_1" />
+        Female</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+{#    <th scope="row">Phone</th>#}
+    <td colspan="2"><label for="textfield2"></label>
+      <input type="text" pattern="[7-9]{1}[0-9]{9}" required class="form-control" placeholder="Phone" name="textfield2" id="textfield2" /></td>
+  </tr>
+  <tr>
+{#    <th scope="row">Email</th>#}
+    <td colspan="2"><label for="textfield3"></label>
+      <input type="email" class="form-control" placeholder="Email" name="textfield3" id="textfield3" /></td>
+  </tr>
+  <tr>
+{#    <th scope="row">Password</th>#}
+    <td colspan="2"><label for="textfield4"></label>
+      <input type="password" required class="form-control" placeholder="Password" name="textfield4" id="textfield4" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" class="form-control" name="button" id="button" value="Register" /></th>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>
+{% endblock %}
